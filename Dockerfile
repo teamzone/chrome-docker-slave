@@ -10,5 +10,7 @@ ADD xvfbctl /bin/xvfbctl
 RUN chmod a+x /bin/xvfbctl
 ADD chromedriverctl /bin/chromedriverctl
 RUN chmod a+x /bin/chromedriverctl
+ADD chromewrapper /usr/bin/google-chrome-stable
+RUN chmod a+x /usr/bin/google-chrome-stable
 USER strider
 ENV DISPLAY :99
