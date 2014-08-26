@@ -6,5 +6,7 @@ RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/so
 RUN apt-get update
 RUN apt-get install -y xvfb google-chrome-stable
 RUN npm install -g chromedriver
+ADD xvfbctl /bin/xvfbctl
+RUN chmod a+x /bin/xvfbctl
 USER strider
 ENV DISPLAY :99
