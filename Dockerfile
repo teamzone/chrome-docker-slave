@@ -8,5 +8,7 @@ RUN apt-get install -y xvfb google-chrome-stable
 RUN npm install -g chromedriver
 ADD xvfbctl /bin/xvfbctl
 RUN chmod a+x /bin/xvfbctl
+ADD chromedriverctl /bin/chromedriverctl
+RUN chmod a+x /bin/chromedriverctl
 USER strider
 ENV DISPLAY :99

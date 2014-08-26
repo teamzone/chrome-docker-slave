@@ -1,0 +1,24 @@
+#!/bin/bash
+CHROMEDRIVER=/usr/local/bin/chromedriver
+CHROMEDRIVERARGS="--url-base=/wd/hub"
+PIDFILE=/tmp/chromedriver_${DISPLAY:1}.pid
+case "$1" in
+  start)
+    echo -n "Starting chromedriver"
+    /sbin/start-stop-daemon --start --quiet --pidfile $PIDFILE --make-pidfile --background --exec $CHROMEDRIVER -- $CHROMEDRIVERARGS
+    echo "."
+    ;;
+  stop)
+    echo -n "Stopping chromedriver"
+    /sbin/start-stop-daemon --stop --quiet --pidfile $PIDFILE
+    echo "."
+    ;;
+  restart)
+    $0 stop
+    $0 start
+    ;;
+  *)
+  echo "Usage: $0 {start|stop|restart}"
+  exit 1
+esac
+exit 0
