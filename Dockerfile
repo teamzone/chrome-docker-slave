@@ -12,5 +12,6 @@ ADD chromedriverctl /bin/chromedriverctl
 RUN chmod a+x /bin/chromedriverctl
 ADD chromewrapper /usr/bin/google-chrome-stable
 RUN chmod a+x /usr/bin/google-chrome-stable
+RUN echo "IdentityFile ~/.ssh/id_rsa" >> /etc/ssh/ssh_config
 USER strider
 ENV DISPLAY :99
